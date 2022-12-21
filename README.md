@@ -8,4 +8,4 @@ A shopping application made with the help of Rest API @ https://fakestoreapi.com
 
 ## Preview
 
-![Preview Image](Shopy_preview_image.png)"# Shopy" 
+![Preview Image](Shopy_preview_image.png)
