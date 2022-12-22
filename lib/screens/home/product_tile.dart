@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/model/product.dart';
-import 'package:shopy/views/product_view.dart';
+import 'package:shopy/screens/home/product_view.dart';
 
 class ProductTile extends StatelessWidget {
   const ProductTile({super.key, required this.product});

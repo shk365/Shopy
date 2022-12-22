@@ -12,6 +12,7 @@ class ProductView extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: const Text('Shopy'),
+          toolbarHeight: 80,
         ),
         body: SingleChildScrollView(
           child: Padding(

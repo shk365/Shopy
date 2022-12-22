@@ -28,3 +28,35 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 }
+
+/* 
+List pages = [const HomePage(), const CartPage(), const UserPage()];
+  int _currentIndex = 0;
+
+  bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.indigo,
+        unselectedItemColor: Colors.indigoAccent,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        onTap: (value) {
+          // Respond to item press.
+          setState(() => _currentIndex = value);
+        },
+        items: const [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(Icons.home_rounded),
+          ),
+          BottomNavigationBarItem(
+            label: 'Cart',
+            icon: Icon(Icons.shopping_cart_rounded),
+          ),
+          BottomNavigationBarItem(
+            label: 'You',
+            icon: Icon(Icons.person_rounded),
+          ),
+        ],
+      ),
+*/

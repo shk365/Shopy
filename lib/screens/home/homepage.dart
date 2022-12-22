@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/model/product.dart';
-import 'package:shopy/views/product_tile.dart';
+import 'package:shopy/screens/cart/cart.dart';
+import 'package:shopy/screens/home/product_tile.dart';
 import 'package:http/http.dart' as http;
+import 'package:shopy/screens/user/user.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,11 +11,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Shopy'),
-        toolbarHeight: 80,
-      ),
       body: FutureBuilder<List<ProductModel>>(
         future: fetchProducts(http.Client()),
         builder: (context, snapshot) {
