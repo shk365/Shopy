@@ -1,55 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/model/cart_model.dart';
+import 'package:shopy/model/product_model.dart';
+import 'package:http/http.dart' as http;
 import 'package:shopy/screens/cart/cart_view.dart';
 
-class Cart extends StatefulWidget {
-  const Cart({super.key});
-
-  @override
-  State<Cart> createState() {
-    return _CartState();
-  }
-}
-
-class _CartState extends State<Cart> {
-  final TextEditingController _controller = TextEditingController();
-  late Future<CartModel> _futureCartModel;
-
-  @override
-  void initState() {
-    super.initState();
-    _futureCartModel = fetchCartModel();
-  }
+class CartPage extends StatelessWidget {
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Update Data Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Update Data Example'),
-        ),
-        body: Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.all(8.0),
-          child: FutureBuilder<CartModel>(
-            future: _futureCartModel,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                if (snapshot.hasData) {
-                  //return CartView();
-                } else if (snapshot.hasError) {
-                  return Text('${snapshot.error}');
-                }
-              }
-
-              return const CircularProgressIndicator();
-            },
-          ),
-        ),
+    return Scaffold(
+      body: FutureBuilder<List<ProductModel>>(
+        future: fetchProducts(http.Client()),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text('An error has occurred!'),
+            );
+          } else if (snapshot.hasData) {
+            return CartView(product: snapshot.data!);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
       ),
     );
   }

@@ -73,7 +73,7 @@ class LoginView extends StatelessWidget {
                       padding: EdgeInsets.all(4.0),
                       child: Text('LOGIN'),
                     ),
-                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const NavBar())),
+                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar())),
                   )
               ),
             ),

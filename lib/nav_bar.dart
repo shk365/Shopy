@@ -4,8 +4,7 @@ import 'package:shopy/screens/home/homepage.dart';
 import 'package:shopy/screens/user/user.dart';
 
 class NavBar extends StatefulWidget {
-
-  const NavBar({
+  NavBar({
     Key? key,
   }) : super(key: key);
 
@@ -14,7 +13,7 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  final pages = [const HomePage(), const Cart(), const UserPage()];
+  final pages = [const HomePage(), const CartPage(), const UserPage()];
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class _NavBarState extends State<NavBar> {
         currentIndex: _currentIndex,
         iconSize: 40,
         selectedItemColor: Colors.indigo,
-        unselectedItemColor: Color.fromARGB(119, 63, 81, 181),
+        unselectedItemColor: const Color.fromARGB(119, 63, 81, 181),
         selectedFontSize: 14,
         unselectedFontSize: 14,
         onTap: (index) {
