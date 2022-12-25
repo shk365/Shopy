@@ -18,7 +18,7 @@ List<ProductModel> parseProduct(String responseBody) {
 }
 
 class ProductModel {
-  int? id;
+  late int id;
   late String title;
   double? price;
   late String description;
@@ -27,7 +27,7 @@ class ProductModel {
   Rating? rating;
 
   ProductModel(
-      {this.id,
+      {required this.id,
       required this.title,
       this.price,
       required this.description,

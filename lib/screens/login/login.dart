@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/main.dart';
 import 'package:shopy/model/users.dart';
 import 'package:http/http.dart' as http;
 import 'package:shopy/screens/login/login_view.dart';
-import '../cart/cart.dart';
-import '../home/homepage.dart';
-import '../user/user.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});

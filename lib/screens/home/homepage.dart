@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/model/product.dart';
-import 'package:shopy/screens/cart/cart.dart';
+import 'package:shopy/model/product_model.dart';
 import 'package:shopy/screens/home/product_tile.dart';
 import 'package:http/http.dart' as http;
-import 'package:shopy/screens/user/user.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

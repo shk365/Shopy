@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/model/product.dart';
+import 'package:shopy/model/product_model.dart';
 
-class ProductView extends StatelessWidget {
-  const ProductView({super.key, required this.product});
-  
+class ProductView extends StatefulWidget {
+  ProductView({super.key, required this.product});
+
   final ProductModel product;
 
+  @override
+  State<ProductView> createState() => ProductViewState();
+}
+
+class ProductViewState extends State<ProductView> {
+  bool inCart = false;
+  bool labelCartButton = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,35 +29,34 @@ class ProductView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                      product.category.toUpperCase(),
-                      style: const TextStyle(fontSize: 22),
-                    ),
+                  widget.product.category.toUpperCase(),
+                  style: const TextStyle(fontSize: 22),
+                ),
                 Container(
-                  constraints: const BoxConstraints(
-                    maxHeight: 350
-                  ),
+                  constraints: const BoxConstraints(maxHeight: 350),
                   child: Padding(
                     padding: const EdgeInsets.all(12),
                     child: Image.network(
-                      product.image,
+                      widget.product.image,
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                 Text(
-                      product.title,
-                      style: const TextStyle(fontSize: 22),
-                    ),
+                  widget.product.title,
+                  style: const TextStyle(fontSize: 22),
+                ),
                 const SizedBox(
                   height: 10,
                 ),
                 Row(
                   children: [
-                    const Text('\$',
+                    const Text(
+                      '\$',
                       style: TextStyle(fontSize: 26),
                     ),
                     Text(
-                      product.price.toString(),
+                      widget.product.price.toString(),
                       style: const TextStyle(fontSize: 26),
                     ),
                   ],
@@ -58,9 +64,45 @@ class ProductView extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(product.description,
+                Text(
+                  widget.product.description,
                   style: const TextStyle(fontSize: 18),
                 ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                      OutlinedButton.icon(
+                          onPressed: () {
+                            setState(() {
+                              inCart = !inCart;
+                              labelCartButton = !labelCartButton;
+                            });
+                          },
+                          icon: const Icon(Icons.shopping_cart_rounded),
+                          label: labelCartButton
+                                ? const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('Added to Cart', style: TextStyle(fontSize: 24),),
+                                )
+                                : const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('Add to Cart', style: TextStyle(fontSize: 24)),
+                                ),
+                          ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {}, child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Buy Now', style: TextStyle(fontSize: 24)),
+                      )),
+                  ],
+                )
               ],
             ),
           ),

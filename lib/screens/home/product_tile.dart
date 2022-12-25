@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/model/product.dart';
+import 'package:shopy/model/product_model.dart';
 import 'package:shopy/screens/home/product_view.dart';
 
 class ProductTile extends StatelessWidget {

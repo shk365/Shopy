@@ -14,7 +14,7 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  final pages = [const HomePage(), const CartPage(), const UserPage()];
+  final pages = [const HomePage(), const Cart(), const UserPage()];
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
