@@ -8,12 +8,6 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-            //leading: Image.network(src),
-            );
-      },
-    );
+    return Text('Coming Soon ');
   }
 }

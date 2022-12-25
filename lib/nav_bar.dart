@@ -29,6 +29,8 @@ class _NavBarState extends State<NavBar> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         iconSize: 40,
+        selectedItemColor: Colors.indigo,
+        unselectedItemColor: Color.fromARGB(119, 63, 81, 181),
         selectedFontSize: 14,
         unselectedFontSize: 14,
         onTap: (index) {
